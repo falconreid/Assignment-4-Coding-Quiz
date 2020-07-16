@@ -31,7 +31,7 @@ function add(event) {
 }
     Rotate a set of choices to the user to select.
     Create a button to remove a div of text.
-    Add an li element in the HTML that can bedited or deleted.
+    Add an li element in the HTML that can be edited or deleted.
     Create an li element with buttons that increase or decrease an increment.
 
      
