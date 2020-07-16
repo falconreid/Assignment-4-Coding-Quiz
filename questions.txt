@@ -18,3 +18,20 @@ Which of the following are all used to access and update the DOM tree?
     charCount(), checkTerms(), removeAttr(), eventType()
     backgroundPosition(), wordSpacing(), isNumeric(), newItemButton()
     getElementByID(), nextSibling, querySelector(), parentNode
+
+What might be the purpose of this function?
+function add(event) {
+  event.preventDefault();
+  var name = nameEl.value;
+  var li = document.createElement("li");
+  li.id = people.length;
+  li.innerHTML = name + " <button>edit</button>" + "<button>Delete</button>";
+  people.push({ name: name });
+  peopleListEl.append(li);
+}
+    Rotate a set of choices to the user to select.
+    Create a button to remove a div of text.
+    Add an li element in the HTML that can bedited or deleted.
+    Create an li element with buttons that increase or decrease an increment.
+
+     
