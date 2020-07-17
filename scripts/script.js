@@ -4,6 +4,7 @@ var quizSection = document.querySelector("#quizContent");
 var questionSec = document.querySelector("#question");
 var ulAnswers = document.querySelector("#ulAnswers");
 var timeEl = document.querySelector("#timeLeft");
+var score = document.querySelector("#currentScore");
 
 // Set of questions
 var questionList = [
@@ -51,7 +52,7 @@ var questionList = [
 ];
 
 // timer function
-var secondsLeft = 30;
+var secondsLeft = 25 * questionList.length;
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -71,7 +72,10 @@ var currentQuestion = 0;
 
 document.getElementById("button").addEventListener("click", function () {
   document.getElementById("instructions").textContent = "";
+
   setTime();
+
+  document.getElementById("button").setAttribute("style", "display:none;");
   // call questions from questions file:
   currentQuestion++;
   document.getElementById("question").innerHTML =

@@ -36,6 +36,13 @@ ul {
   list-style: none;
 }
 
+li {
+  font-size: 16pt;
+}
+li:hover {
+  font-weight: 600;
+}
+
 /* Display settings to alternate active divs */
 #quizContent {
   display: block;
@@ -124,6 +131,9 @@ footer {
   }
 }
 
+#button {
+  display: block;
+}
 .myButton {
   background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
   background-color: #79bbff;
