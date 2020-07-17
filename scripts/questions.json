@@ -1,0 +1,56 @@
+
+
+[
+    {
+      "question": "What is the the definition of a function?",
+      "choice": [
+        "Functions let you group together a series of statements to perform a specific task.",
+        "Functions let you combine arrays and objects to create complex data structures.",
+        "Functions allow you to compare the results of one or more comparison operators.",
+        "Functions are often used to loop through the items in an array."
+      ],
+      "answer": 0
+    },
+    {
+        "question": "If Statements are used to evaluate a condition based on what criteria?",
+        "choice": [
+          "Whether or not the function is named or anonymous.",
+          "Whether or not the condition is true or false.",
+          "Whether the variable is an array or a string.",
+          "Whether or not the data type is Boolean or Undefined."
+        ],
+        "answer": 1
+      },
+      {
+        "question": "What is the the definition of a function?",
+        "choice": [
+          "offerExpire(), listArray(), checkUserName(), dismissNotation()",
+          "charCount(), checkTerms(), removeAttr(), eventType()",
+          "backgroundPosition(), wordSpacing(), isNumeric(), newItemButton()",
+          "getElementByID(), nextSibling, querySelector(), parentNode"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "What might be the purpose of this function?
+        function add(event) {
+          event.preventDefault();
+          var name = nameEl.value;
+          var li = document.createElement("li");
+          li.id = people.length;
+          li.innerHTML = name + " <button>edit</button>" + "<button>Delete</button>";
+          people.push({ name: name });
+          peopleListEl.append(li);
+        }",
+        "choice": [
+          "Rotate a set of choices to the user to select.",
+          "Add an li element in the HTML that can be edited or deleted.",
+          "Create a button to remove a div of text.",
+          "Create an li element with buttons that increase or decrease an increment."
+        ],
+        "answer": 1
+      }
+
+  ]
+
+  <script>

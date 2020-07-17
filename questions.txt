@@ -20,14 +20,14 @@ Which of the following are all used to access and update the DOM tree?
     getElementByID(), nextSibling, querySelector(), parentNode
 
 What might be the purpose of this function?
-function add(event) {
+'function add(event) {
   event.preventDefault();
   var name = nameEl.value;
   var li = document.createElement("li");
   li.id = people.length;
   li.innerHTML = name + " <button>edit</button>" + "<button>Delete</button>";
   people.push({ name: name });
-  peopleListEl.append(li);
+  peopleListEl.append(li);'
 }
     Rotate a set of choices to the user to select.
     Create a button to remove a div of text.

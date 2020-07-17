@@ -32,7 +32,7 @@ nav img {
   margin-top: 5px;
 }
 
-ul.noStyle {
+ul {
   list-style: none;
 }
 
@@ -122,4 +122,27 @@ footer {
     max-width: 85%;
     height: auto;
   }
+}
+
+.myButton {
+  background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+  background-color: #79bbff;
+  border-radius: 9px;
+  border: 1px solid #84bbf3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 35px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+  background-color: #378de5;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
 }
