@@ -5,6 +5,7 @@ var questionSec = document.querySelector("#question");
 var ulAnswers = document.querySelector("#ulAnswers");
 var timeEl = document.querySelector("#timeLeft");
 var score = document.querySelector("#currentScore");
+var liEl = document.getElementsByClassName("answers");
 
 // Set of questions
 var questionList = [
@@ -66,17 +67,8 @@ function setTime() {
   }, 1000);
 }
 
-// Click Button to activate timer and begin quiz
-// function to call questions
-var currentQuestion = 0;
-
-document.getElementById("button").addEventListener("click", function () {
-  document.getElementById("instructions").textContent = "";
-
-  setTime();
-
-  document.getElementById("button").setAttribute("style", "display:none;");
-  // call questions from questions file:
+// function to get questions
+function getQuestion() {
   currentQuestion++;
   document.getElementById("question").innerHTML =
     questionList[currentQuestion].question;
@@ -88,7 +80,25 @@ document.getElementById("button").addEventListener("click", function () {
     questionList[currentQuestion].choice[2];
   document.getElementById("a4").innerHTML =
     questionList[currentQuestion].choice[3];
+}
+// Click Button to activate timer and begin quiz
+// function to call questions
+var currentQuestion = 0;
+
+document.getElementById("button").addEventListener("click", function () {
+  event.preventDefault();
+  document.getElementById("instructions").textContent = "";
+  getQuestion();
+  setTime();
+  document.getElementById("button").setAttribute("style", "display:none;");
 });
+
+// get next question
+for (var i = 0; i < liEl.length; i++) {
+  liEl[i].addEventListener("click", function () {
+    console.log(getQuestion());
+  });
+}
 
 // Final Section
 var finalSection = document.querySelector("#finalScore");
