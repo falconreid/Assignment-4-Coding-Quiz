@@ -9,7 +9,7 @@ var liEl = document.getElementsByClassName("answers");
 var finalScore = document.getElementById("entry");
 var score = "0";
 var initsButton = document.querySelector(".initials");
-var inputInit = document.querySelector("#inputInit");
+
 // Set of questions
 var questionList = [
   {
@@ -66,7 +66,7 @@ var questionList = [
 var secondsLeft = 40;
 
 function setTime() {
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = "Time Remaining: " + secondsLeft;
 
@@ -152,6 +152,8 @@ function addInput(divName) {
   newdiv.innerHTML =
     " <br><input type='text' name='myInputs[]' id='inputInit'><br>";
   document.getElementById("scoreFinal").appendChild(newdiv);
+  inputInit = document.querySelector("#inputInit");
+  console.log(inputInit);
 }
 
 // function to collect intials and send to storage
@@ -160,8 +162,8 @@ initsButton.addEventListener("click", function (event) {
 
   var input = {
     //score + initials
-    totalScore: inputInit.value.trim(),
-    initials: initsButton.value.trim(),
+    inititals: inputInit.value.trim(),
+    score: score,
   };
   localStorage.setItem("Initials", JSON.stringify(input));
   console.log(JSON.stringify(input));
