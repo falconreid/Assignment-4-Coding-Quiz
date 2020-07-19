@@ -6,6 +6,7 @@ var ulAnswers = document.querySelector("#ulAnswers");
 var timeEl = document.querySelector("#timeLeft");
 var scoreCurrent = document.querySelector("#currentScore");
 var liEl = document.getElementsByClassName("answers");
+var finalScore = document.getElementById("entry");
 var score = "0";
 
 // Set of questions
@@ -53,17 +54,22 @@ var questionList = [
     ],
     answer: "for (i = 0; i <= 5; i++)",
   },
+  {
+    question: "",
+    choice: [""],
+    answer: "",
+  },
 ];
 
 // timer function
-var secondsLeft = 15 * questionList.length;
+var secondsLeft = 5 * questionList.length;
 
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = "Time Remaining: " + secondsLeft;
-    scoreCurrent.textContent =
-      "Current Score: " + score + "/" + questionList.length;
+
+    scoreCurrent.textContent = "Current Score: " + score + "/" + "4";
 
     if (secondsLeft === 0) {
       timeEl.textContent = "Time Is Up!";
@@ -106,8 +112,6 @@ document.getElementById("button").addEventListener("click", function () {
 // get next question
 for (var i = 0; i < liEl.length; i++) {
   liEl[i].addEventListener("click", function (e) {
-    console.log(e.target.textContent);
-    console.log(questionList[currentQuestion].answer);
     if (e.target.textContent === questionList[currentQuestion].answer) {
       console.log("correct");
       score.textContent = score++;
@@ -116,10 +120,11 @@ for (var i = 0; i < liEl.length; i++) {
     }
     currentQuestion++;
     getQuestion();
+    console.log(currentQuestion);
 
-    if (liEl.length > 3) {
-      clearInterval(timerInterval);
+    if (currentQuestion === 4) {
       sectionSwitch();
+    } else {
     }
   });
 }
@@ -133,6 +138,15 @@ var scoreEntry = document.querySelector("#entry");
 function sectionSwitch() {
   quizSection.setAttribute("style", "display: none;");
   finalSection.setAttribute("style", "display: block;");
+  finalScore.textContent = score + "/" + "4";
+  localStorage.setItem("Score", finalScore);
+  addInput();
+}
+
+function addInput(divName) {
+  var newdiv = document.createElement("div");
+  newdiv.innerHTML = " <br><input type='text' name='myInputs[]'>";
+  document.getElementById("scoreInitials").appendChild(newdiv);
 }
 
 // function to return to quiz after user enters initials
