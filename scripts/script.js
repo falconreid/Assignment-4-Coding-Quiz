@@ -142,7 +142,7 @@ function sectionSwitch() {
   quizSection.setAttribute("style", "display: none;");
   finalSection.setAttribute("style", "display: block;");
   finalScore.textContent = score + "/" + "4";
-  localStorage.setItem("Score", finalScore);
+  localStorage.setItem("Score", JSON.stringify(score));
   addInput();
 }
 
@@ -156,8 +156,8 @@ function addInput(divName) {
   console.log(inputInit);
 }
 
-// function to collect intials and send to storage
-initsButton.addEventListener("click", function (event) {
+// function to collect intials and send to storage and new list items
+initsButton.addEventListener("click" || "mousedown", function (event) {
   event.preventDefault();
 
   var input = {
@@ -167,4 +167,13 @@ initsButton.addEventListener("click", function (event) {
   };
   localStorage.setItem("Initials", JSON.stringify(input));
   console.log(JSON.stringify(input));
+  var highScoreSec = document.getElementById("highScores");
+  var ulTag = document.createElement("ul");
+  var liTag = document.createElement("li");
+  highScoreSec.appendChild(ulTag);
+  ulTag.appendChild(liTag);
+  hiScore = JSON.parse(localStorage.getItem(input));
+  liTag.textContent = "Score: " + inputInit.value + " : " + score;
+  console.log("Score: " + inputInit.value + " : " + score);
+  console.log(input);
 });
