@@ -8,7 +8,8 @@ var scoreCurrent = document.querySelector("#currentScore");
 var liEl = document.getElementsByClassName("answers");
 var finalScore = document.getElementById("entry");
 var score = "0";
-
+var initsButton = document.querySelector(".initials");
+var inputInit = document.querySelector("#inputInit");
 // Set of questions
 var questionList = [
   {
@@ -62,7 +63,7 @@ var questionList = [
 ];
 
 // timer function
-var secondsLeft = 5 * questionList.length;
+var secondsLeft = 40;
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -117,6 +118,7 @@ for (var i = 0; i < liEl.length; i++) {
       score.textContent = score++;
     } else {
       console.log("WRONG!");
+      secondsLeft = secondsLeft - 10;
     }
     currentQuestion++;
     getQuestion();
@@ -124,6 +126,7 @@ for (var i = 0; i < liEl.length; i++) {
 
     if (currentQuestion === 4) {
       sectionSwitch();
+      clearInterval(timerInterval);
     } else {
     }
   });
@@ -143,14 +146,23 @@ function sectionSwitch() {
   addInput();
 }
 
+// function to create input form
 function addInput(divName) {
   var newdiv = document.createElement("div");
-  newdiv.innerHTML = " <br><input type='text' name='myInputs[]'>";
-  document.getElementById("scoreInitials").appendChild(newdiv);
+  newdiv.innerHTML =
+    " <br><input type='text' name='myInputs[]' id='inputInit'><br>";
+  document.getElementById("scoreFinal").appendChild(newdiv);
 }
 
-// function to return to quiz after user enters initials
-function sectionSwitchBack() {
-  quizSection.setAttribute("style", "display: block;");
-  finalSection.setAttribute("style", "display: none;");
-}
+// function to collect intials and send to storage
+initsButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var input = {
+    //score + initials
+    totalScore: inputInit.value.trim(),
+    initials: initsButton.value.trim(),
+  };
+  localStorage.setItem("Initials", JSON.stringify(input));
+  console.log(JSON.stringify(input));
+});

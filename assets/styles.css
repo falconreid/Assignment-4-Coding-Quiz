@@ -64,7 +64,7 @@ li:hover {
 }
 
 #initialsForm {
-  float: left;
+  padding: 25px;
 }
 
 .portfolioLinks {
@@ -155,4 +155,9 @@ footer {
 .myButton:active {
   position: relative;
   top: 1px;
+}
+
+#highScores {
+  float: left;
+  padding: 25px;
 }
