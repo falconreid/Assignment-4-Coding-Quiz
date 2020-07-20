@@ -162,7 +162,7 @@ initsButton.addEventListener("click" || "mousedown", function (event) {
 
   var input = {
     //score + initials
-    inititals: inputInit.value.trim(),
+    initials: inputInit.value.trim(),
     score: score,
   };
   localStorage.setItem("Initials", JSON.stringify(input));
@@ -172,8 +172,6 @@ initsButton.addEventListener("click" || "mousedown", function (event) {
   var liTag = document.createElement("li");
   highScoreSec.appendChild(ulTag);
   ulTag.appendChild(liTag);
-  hiScore = JSON.parse(localStorage.getItem(input));
-  liTag.textContent = "Score: " + inputInit.value + " : " + score;
-  console.log("Score: " + inputInit.value + " : " + score);
-  console.log(input);
+  hiScore = window.localStorage.getItem("Initials");
+  liTag.textContent = "Score: " + input.initials + " : " + input.score;
 });
